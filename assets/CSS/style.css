@@ -6,10 +6,7 @@ body {
    
 }
 
-#testTimer {
-    margin: 25px;
-}
-#timer, h1 {
+#timer {
 
     height: 65px;
     font-size: 25px;
@@ -17,18 +14,31 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    align-content: center;
+    box-shadow: 0 0 10px 2px;
+
+}
+
+#gameTitle {
+font-size: 50px;
+font-family: 'Michroma', sans-serif;
+margin: 0;
+padding: 0;
+align-content: center;
 
 }
 
 .jumbotron {
-    overflow: none;
     opacity: .87;
+    box-shadow: 0 0 10px 2px;
+    align-content: center;
     
 }
 
 .triviaFont {
     font-family: 'Michroma', sans-serif;
     font-weight: bold;
+    align-content: center;
 }
 
 .mainContainer {
@@ -38,6 +48,16 @@ body {
 
 #button-primary {
     font-weight: 100;
+   
 }
 
+
+
+#choices {
+    font-family: 'Michroma', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, auto) ;
+    gap: 7px;
+    border-radius: 10px;
+}
 

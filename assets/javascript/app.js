@@ -9,10 +9,11 @@ $(document).ready(function () {
             document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
             tenSecTimer -= 1;
             if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
                 clearInterval(resetTimer);
-                document.getElementById("timer").innerHTML = ":00";
                 // Code below this line is to test the countdown timer#s ability to trigger an action upon countdown
                 // document.getElementById("trivia").innerHTML = "What's your favorite scary movie?";
+
 
             }
         }, 1000);
@@ -38,8 +39,11 @@ $(document).ready(function () {
     }
 
     function incorrectAnswer() {
+        let incorrects = 0;
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
+        incorrects++;
+
 
     }
 
@@ -66,8 +70,8 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="iA2">Weightloss</button>',
         '<button type="button" class="btn-primary" id="cA2">Obesity</button>'];
 
-    let choices2 = ['<button type="button" class="btn-primary" id="iA3">donuts & other pastries</button>',
-        '<button type="button" class="btn-primary" id="cA3">lean meats & eggs</button>',
+    let choices2 = ['<button type="button" class="btn-primary" id="iA3">Donuts & Other pastries</button>',
+        '<button type="button" class="btn-primary" id="cA3">Lean meats & Eggs</button>',
         '<button type="button" class="btn-primary" id="iA3">Coffee</button>',
         '<button type="button" class="btn-primary" id="iA3">Energy drinks</button>'];
 
@@ -110,6 +114,7 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="cA10">Table Sugar</button>'];
 
     let score = 0;
+
 
     // let questionCount = 0;
     // questionCount++
@@ -163,6 +168,7 @@ $(document).ready(function () {
 
     $("#choices").on("click", "#iA3", function () {
         incorrectAnswer();
+
         document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ3">Next</button>';
         console.log('Sorry. Wrong answer.');
 
@@ -260,7 +266,20 @@ $(document).ready(function () {
         console.log('Sorry. Wrong answer.');
 
     })
+    $("#choices").on("click", "#cA10", function () {
+        correctAnswer();
+        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextToScore">Next</button>';
+        score++
+        console.log('Q10. Correct Answer')
 
+    })
+
+    $("#choices").on("click", "#iA10", function () {
+        incorrectAnswer();
+        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextToScore">Next</button>';
+        console.log('Sorry. Wrong answer.');
+
+    })
 
     //Below are the green 'Next' buttons that advance User to next question
 
@@ -343,8 +362,25 @@ $(document).ready(function () {
 
     })
 
-    //Last 'Next' button below will take User to final screen that displays Score and 'Thank You' message
+    //Last 'Next' button (#nextToScore) takes User to final screen that displays Score and 'Thank You' message
 
+    $("#msg3").on("click", "#nextToScore", function () {
+        document.getElementById("msg2").innerHTML = "";
+
+        if (score >= 7) {
+            document.getElementById("question1").innerHTML = "Sweet!  You got &nbsp " + score + " &nbsp out of 10 correct.";
+        }
+        else if (score === 10) {
+            document.getElementById("question1").innerHTML = "You Rock!  You got a perfect &nbsp " + score + " &nbsp out of 10 correct.";
+        }
+        else {
+            document.getElementById("question1").innerHTML = "You got &nbsp" + score + " &nbsp out of 10 correct.  Better luck next time, kiddo.";
+        }
+
+        document.getElementById("choices").innerHTML = "Thanks for playing Nutrition Facts!";
+        console.log('Final Score message.');
+
+    })
 
 
 
