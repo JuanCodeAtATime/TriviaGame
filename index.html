@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Neucha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Trivia Game</title>
+</head>
+
+<body>
+
+    <div class="mainContainer">
+
+        <div class="jumbotron">
+            <h1 class="display-4">NUTRITION FACTS</h1>
+            <p class="lead">A trivia game about basic nutrition concepts.</p>
+            <hr class="my-4">
+            <div id="disappear">
+                <button class="btn btn-success btn-lg" role="button" id="startGameBtn">Start
+                    Game</button>
+            </div>
+
+            <p class="triviaFont" id="question1">
+                <h3></h3>
+            </p>
+            <p class="triviaFont" id="choices">
+
+            </p>
+            <p class="triviaFont" id="msg2">
+
+            </p>
+            <p class="triviaFont" id="msg3">
+
+            </p>
+        </div>
+        <div id="testTimer">
+
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="timer">
+                <h4>Timer</h4>
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="row" id="triviaQuestion">
+                <h3 id="trivia"></h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="assets/javascript/app.js">
+
+
+    </script>
+</body>
+
+</html>
