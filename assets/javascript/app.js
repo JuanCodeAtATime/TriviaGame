@@ -1,22 +1,24 @@
 $(document).ready(function () {
 
+
+    //ISSUE 10/17/19 3PM...Need to clearInterval per question Ref:https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript?rq=1
     //Green Start Game Button initiates the :10 second timer on click; 
     //It also hides the button and reveals the first question
 
-
     $("#startGameBtn").click(function () {
         startGame();
-        let tenSecTimer = 10;
-        let resetTimer = setInterval(function () {
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
             document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
             tenSecTimer -= 1;
             if (tenSecTimer <= -0.5) {
                 document.getElementById("timer").innerHTML = "Time's Up!";
             }
+
         }, 1000);
 
-    });
 
+    });
 
     function startGame() {
         document.getElementById("disappear").innerHTML = "";
@@ -44,6 +46,7 @@ $(document).ready(function () {
         document.getElementById("choices").innerHTML = "";
 
     }
+
 
 
     let questions = ["1. &nbsp Avocados, walnuts, and almonds are good sources of?",
@@ -236,10 +239,22 @@ $(document).ready(function () {
 
     //Below are the green 'Next' buttons that advance User to next question
 
+
+
     function threeSecDelay0() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[1];
         document.getElementById("choices").innerHTML = choices1;
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
+
 
     }
 
@@ -247,6 +262,15 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[2];
         document.getElementById("choices").innerHTML = choices2;
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -254,6 +278,15 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[3];
         document.getElementById("choices").innerHTML = choices3;
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
 
     }
@@ -262,6 +295,15 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[4];
         document.getElementById("choices").innerHTML = choices4;
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -269,6 +311,15 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[5];
         document.getElementById("choices").innerHTML = choices5;
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -278,6 +329,15 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[6];
         document.getElementById("choices").innerHTML = choices6;
         console.log('Moving to question 6.');
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -286,6 +346,15 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[7];
         document.getElementById("choices").innerHTML = choices7;
         console.log('Moving to question 6.');
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -294,6 +363,15 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[8];
         document.getElementById("choices").innerHTML = choices8;
         console.log('Moving to question 6.');
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
@@ -302,6 +380,15 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[9];
         document.getElementById("choices").innerHTML = choices9;
         console.log('Moving to question 6.');
+        tenSecTimer = 10;
+        resetTimer = setInterval(function () {
+            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
+            tenSecTimer -= 1;
+            if (tenSecTimer <= -0.5) {
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }
+
+        }, 1000);
 
     }
 
