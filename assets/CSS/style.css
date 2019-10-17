@@ -3,7 +3,11 @@ body {
     margin: 0;
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../images/nutritionFacts.jpg");
     background-size: cover;
-   
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 #timer {

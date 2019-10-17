@@ -2,6 +2,8 @@ $(document).ready(function () {
 
     //Green Start Game Button initiates the :10 second timer on click; 
     //It also hides the button and reveals the first question
+
+
     $("#startGameBtn").click(function () {
         startGame();
         let tenSecTimer = 10;
@@ -10,16 +12,9 @@ $(document).ready(function () {
             tenSecTimer -= 1;
             if (tenSecTimer <= -0.5) {
                 document.getElementById("timer").innerHTML = "Time's Up!";
-                clearInterval(resetTimer);
-                // Code below this line is to test the countdown timer#s ability to trigger an action upon countdown
-                // document.getElementById("trivia").innerHTML = "What's your favorite scary movie?";
-
-
             }
         }, 1000);
 
-
-        console.log(tenSecTimer);
     });
 
 
@@ -27,23 +22,26 @@ $(document).ready(function () {
         document.getElementById("disappear").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[0];
         document.getElementById("choices").innerHTML = choices0;
+
+
         // document.getElementById("choices").innerHTML = questionCount;
 
     }
     function correctAnswer() {
+        score++
         document.getElementById("msg2").innerHTML = "Correct";
         document.getElementById("choices").innerHTML = "";
+
         //Commenting out Score variable until I get it to work
         // document.getElementById("score").innerHTML = "";
 
     }
 
     function incorrectAnswer() {
-        let incorrects = 0;
+        incorrects = 0;
+        incorrects++;
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
-        incorrects++;
-
 
     }
 
@@ -127,244 +125,189 @@ $(document).ready(function () {
 
     $("#choices").on("click", "#cA1", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ">Next</button>';
-        score++
-        console.log('hitting new clicker')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay0, 3000);
+
     })
 
     $("#choices").on("click", "#iA1", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay0, 3000);
     })
 
     $("#choices").on("click", "#cA2", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ2">Next</button>';
-        score++
-        console.log('hitting new clicker')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay1, 3000);
+
     })
 
     $("#choices").on("click", "#iA2", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ2">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay1, 3000);
     })
 
     $("#choices").on("click", "#cA3", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ3">Next</button>';
-        score++
-        console.log('hitting new clicker')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay2, 3000);
+
     })
 
     $("#choices").on("click", "#iA3", function () {
         incorrectAnswer();
-
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ3">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay2, 3000);
     })
+
     $("#choices").on("click", "#cA4", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ4">Next</button>';
-        score++
-        console.log('Q4. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay3, 3000);
+
     })
 
     $("#choices").on("click", "#iA4", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ4">Next</button>';
-        console.log('Sorry. Wrong answer.');
+        setTimeout(threeSecDelay3, 3000);
 
     })
     $("#choices").on("click", "#cA5", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ5">Next</button>';
+        setTimeout(threeSecDelay4, 3000);
         score++
-        console.log('Q5. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+
     })
 
     $("#choices").on("click", "#iA5", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ5">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay4, 3000);
     })
 
     $("#choices").on("click", "#cA6", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ6">Next</button>';
-        score++
-        console.log('Q5. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay5, 3000);
+
     })
 
     $("#choices").on("click", "#iA6", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ6">Next</button>';
-        console.log('Sorry. Wrong answer.');
+        setTimeout(threeSecDelay5, 3000);
 
     })
 
     $("#choices").on("click", "#cA7", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ7">Next</button>';
-        score++
-        console.log('Q5. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay6, 3000);
+
     })
 
     $("#choices").on("click", "#iA7", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ7">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay6, 3000);
     })
 
     $("#choices").on("click", "#cA8", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ8">Next</button>';
-        score++
-        console.log('Q5. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay7, 3000);
+
     })
 
     $("#choices").on("click", "#iA8", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ8">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay7, 3000);
     })
+
     $("#choices").on("click", "#cA9", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ9">Next</button>';
-        score++
-        console.log('Q5. Correct Answer')
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
+        setTimeout(threeSecDelay8, 3000);
+
     })
 
     $("#choices").on("click", "#iA9", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextQ9">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay8, 3000);
     })
+
     $("#choices").on("click", "#cA10", function () {
         correctAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextToScore">Next</button>';
-        score++
-        console.log('Q10. Correct Answer')
-
+        setTimeout(threeSecDelay9, 3000);
     })
 
     $("#choices").on("click", "#iA10", function () {
         incorrectAnswer();
-        document.getElementById("msg3").innerHTML = '<button class="btn btn-success btn-lg" role="button" id="nextToScore">Next</button>';
-        console.log('Sorry. Wrong answer.');
-
+        setTimeout(threeSecDelay9, 3000);
     })
 
     //Below are the green 'Next' buttons that advance User to next question
 
-
-    $("#msg3").on("click", "#nextQ", function () {
+    function threeSecDelay0() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[1];
         document.getElementById("choices").innerHTML = choices1;
-        console.log('Moving to question 2.');
 
-    })
+    }
 
-    $("#msg3").on("click", "#nextQ2", function () {
+    function threeSecDelay1() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[2];
         document.getElementById("choices").innerHTML = choices2;
-        console.log('Moving to question 3.');
-        console.log('test for Q3 next button');
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
-    })
 
-    $("#msg3").on("click", "#nextQ3", function () {
+    }
+
+    function threeSecDelay2() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[3];
         document.getElementById("choices").innerHTML = choices3;
-        console.log('This is question 4.');
-        console.log('test for Q4 next button');
 
-    })
 
-    $("#msg3").on("click", "#nextQ4", function () {
+    }
+
+    function threeSecDelay3() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[4];
         document.getElementById("choices").innerHTML = choices4;
-        console.log('Moving to question 5.');
 
-        // alert('hitting ca1 id')
-        // alert("Your score:" + score);
-    })
+    }
 
-    $("#msg3").on("click", "#nextQ5", function () {
+    function threeSecDelay4() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[5];
         document.getElementById("choices").innerHTML = choices5;
-        console.log('Moving to question 6.');
 
-    })
+    }
 
 
-    $("#msg3").on("click", "#nextQ6", function () {
+    function threeSecDelay5() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[6];
         document.getElementById("choices").innerHTML = choices6;
         console.log('Moving to question 6.');
 
-    })
+    }
 
-    $("#msg3").on("click", "#nextQ7", function () {
+    function threeSecDelay6() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[7];
         document.getElementById("choices").innerHTML = choices7;
         console.log('Moving to question 6.');
 
-    })
+    }
 
-    $("#msg3").on("click", "#nextQ8", function () {
+    function threeSecDelay7() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[8];
         document.getElementById("choices").innerHTML = choices8;
         console.log('Moving to question 6.');
 
-    })
+    }
 
-    $("#msg3").on("click", "#nextQ9", function () {
+    function threeSecDelay8() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[9];
         document.getElementById("choices").innerHTML = choices9;
         console.log('Moving to question 6.');
 
-    })
+    }
 
     //Last 'Next' button (#nextToScore) takes User to final screen that displays Score and 'Thank You' message
 
-    $("#msg3").on("click", "#nextToScore", function () {
+    function threeSecDelay9() {
         document.getElementById("msg2").innerHTML = "";
 
         if (score >= 7) {
@@ -380,21 +323,11 @@ $(document).ready(function () {
         document.getElementById("choices").innerHTML = "Thanks for playing Nutrition Facts!";
         console.log('Final Score message.');
 
-    })
-
-
-
-
-
-
-
-
-
-
-
-    // let answer02 = ["Obesity/Unwanted weight gain", "Lean muscle mass", "Beachbody", "Weightloss"]
+    }
 
 
 
 
 });
+
+
