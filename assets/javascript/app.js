@@ -1,49 +1,81 @@
 $(document).ready(function () {
 
 
-    //ISSUE 10/17/19 3PM...Need to clearInterval per question Ref:https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript?rq=1
-    //Green Start Game Button initiates the :10 second timer on click; 
-    //It also hides the button and reveals the first question
 
-    $("#startGameBtn").click(function () {
-        startGame();
+    let corrects = 0;
+    let incorrects = 0;
+
+    //This is the function to set interval for the 10 second timer.  
+    //After several days of troubleshooting with lengthier code, I was able to
+    //write this one setInterval function that controls the :10 second timers of all 10 questions.
+
+    function tenSeconds() {
         tenSecTimer = 10;
-        resetTimer = setInterval(function () {
+        countdown = setInterval(function () {
             document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
             tenSecTimer -= 1;
             if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
+                qReset();
+                timeRanOut();
             }
 
         }, 1000);
+    }
 
+    function qReset() {
 
+        clearInterval(countdown);
+
+    }
+
+    //This ID for Start Game controls the green Start button on the home screen
+
+    $("#startGameBtn").click(function () {
+        startGame();
     });
 
+    //This function initiates the game and dynamically generates the first of 10 questions.
     function startGame() {
         document.getElementById("disappear").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[0];
         document.getElementById("choices").innerHTML = choices0;
-
-
-        // document.getElementById("choices").innerHTML = questionCount;
+        tenSeconds();
+        // if (qReset()) {
+        //     threeSecDelay0();
+        // }
 
     }
+
+    //This function informs the User that they answered correctly, and it increments 
+    //the Corrects by 1
     function correctAnswer() {
-        score++
+        corrects++
         document.getElementById("msg2").innerHTML = "Correct";
         document.getElementById("choices").innerHTML = "";
 
-        //Commenting out Score variable until I get it to work
-        // document.getElementById("score").innerHTML = "";
+        //Commenting out corrects variable until I get it to work
+        // document.getElementById("corrects").innerHTML = "";
 
     }
 
+    //This function informs the User that they answered incorrectly, and it increments 
+    //the Incorrects by 1
     function incorrectAnswer() {
-        incorrects = 0;
         incorrects++;
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
+
+    }
+
+    //This function informs the User that their time ran out.  It also increments the
+    //incorrects by default.  I'm currently trying to add additional functionality
+    //to advance to the next question. 
+
+    function timeRanOut() {
+        incorrects++;
+        document.getElementById("timer").innerHTML = "Bananas! Your time ran out.";
+        document.getElementById("choices").innerHTML = "";
+
 
     }
 
@@ -114,147 +146,149 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="iA10">Himalayan Salt</button>',
         '<button type="button" class="btn-primary" id="cA10">Table Sugar</button>'];
 
-    let score = 0;
 
+    // Buttons below represent all correct and incorrect answer choices.
+    // User will receive immediate feedback on their response.  
+    // Whether correct or incorrect, both responses have a three second delay, 
+    // then advance to next question without user input.
 
-    // let questionCount = 0;
-    // questionCount++
-
-
-    // Buttons below represent all correct and incorrect answer choices.  
-    // Each question initiates one of two events:
-    // Either: Correct, push 'Next' button to advance to next question || 
-    // Incorrect, push 'Next' button to advance to next question
 
     $("#choices").on("click", "#cA1", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay0, 3000);
 
     })
 
     $("#choices").on("click", "#iA1", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay0, 3000);
     })
 
     $("#choices").on("click", "#cA2", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay1, 3000);
 
     })
 
     $("#choices").on("click", "#iA2", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay1, 3000);
     })
 
     $("#choices").on("click", "#cA3", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay2, 3000);
 
     })
 
     $("#choices").on("click", "#iA3", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay2, 3000);
     })
 
     $("#choices").on("click", "#cA4", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay3, 3000);
 
     })
 
     $("#choices").on("click", "#iA4", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay3, 3000);
 
     })
     $("#choices").on("click", "#cA5", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay4, 3000);
-        score++
 
     })
 
     $("#choices").on("click", "#iA5", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay4, 3000);
     })
 
     $("#choices").on("click", "#cA6", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay5, 3000);
 
     })
 
     $("#choices").on("click", "#iA6", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay5, 3000);
 
     })
 
     $("#choices").on("click", "#cA7", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay6, 3000);
 
     })
 
     $("#choices").on("click", "#iA7", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay6, 3000);
     })
 
     $("#choices").on("click", "#cA8", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay7, 3000);
 
     })
 
     $("#choices").on("click", "#iA8", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay7, 3000);
     })
 
     $("#choices").on("click", "#cA9", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay8, 3000);
 
     })
 
     $("#choices").on("click", "#iA9", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay8, 3000);
     })
 
     $("#choices").on("click", "#cA10", function () {
         correctAnswer();
+        qReset()
         setTimeout(threeSecDelay9, 3000);
     })
 
     $("#choices").on("click", "#iA10", function () {
         incorrectAnswer();
+        qReset()
         setTimeout(threeSecDelay9, 3000);
     })
-
-    //Below are the green 'Next' buttons that advance User to next question
-
 
 
     function threeSecDelay0() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[1];
         document.getElementById("choices").innerHTML = choices1;
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
 
     }
 
@@ -262,32 +296,14 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[2];
         document.getElementById("choices").innerHTML = choices2;
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
     }
 
     function threeSecDelay2() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[3];
         document.getElementById("choices").innerHTML = choices3;
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
 
     }
 
@@ -295,31 +311,14 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[4];
         document.getElementById("choices").innerHTML = choices4;
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
     }
 
     function threeSecDelay4() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[5];
         document.getElementById("choices").innerHTML = choices5;
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
+        tenSeconds();
 
     }
 
@@ -328,33 +327,14 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[6];
         document.getElementById("choices").innerHTML = choices6;
-        console.log('Moving to question 6.');
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
     }
 
     function threeSecDelay6() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[7];
         document.getElementById("choices").innerHTML = choices7;
-        console.log('Moving to question 6.');
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
+        tenSeconds();
 
     }
 
@@ -362,53 +342,33 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[8];
         document.getElementById("choices").innerHTML = choices8;
-        console.log('Moving to question 6.');
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
-
+        tenSeconds();
     }
 
     function threeSecDelay8() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[9];
         document.getElementById("choices").innerHTML = choices9;
-        console.log('Moving to question 6.');
-        tenSecTimer = 10;
-        resetTimer = setInterval(function () {
-            document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
-            tenSecTimer -= 1;
-            if (tenSecTimer <= -0.5) {
-                document.getElementById("timer").innerHTML = "Time's Up!";
-            }
-
-        }, 1000);
+        tenSeconds();
 
     }
 
-    //Last 'Next' button (#nextToScore) takes User to final screen that displays Score and 'Thank You' message
 
     function threeSecDelay9() {
         document.getElementById("msg2").innerHTML = "";
 
-        if (score >= 7) {
-            document.getElementById("question1").innerHTML = "Sweet!  You got &nbsp " + score + " &nbsp out of 10 correct.";
+        if (corrects >= 7) {
+            document.getElementById("question1").innerHTML = "Sweet!  You got &nbsp " + corrects + " &nbsp out of 10 correct.";
         }
-        else if (score === 10) {
-            document.getElementById("question1").innerHTML = "You Rock!  You got a perfect &nbsp " + score + " &nbsp out of 10 correct.";
+        else if (corrects === 10) {
+            document.getElementById("question1").innerHTML = "You Rock!  You got a perfect &nbsp " + corrects + " &nbsp out of 10 correct.";
         }
         else {
-            document.getElementById("question1").innerHTML = "You got &nbsp" + score + " &nbsp out of 10 correct.  Better luck next time, kiddo.";
+            document.getElementById("question1").innerHTML = "You got &nbsp" + corrects + " &nbsp out of 10 correct.  Better luck next time, kiddo.";
         }
 
         document.getElementById("choices").innerHTML = "Thanks for playing Nutrition Facts!";
-        console.log('Final Score message.');
+        console.log('Final corrects message.');
 
     }
 
