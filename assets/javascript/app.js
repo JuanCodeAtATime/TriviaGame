@@ -4,6 +4,10 @@ $(document).ready(function () {
 
     let corrects = 0;
     let incorrects = 0;
+    // let countdown = "";
+    // let tenSecTimer = "";
+    // let tenSecTimer = '';
+    // let countdown = '';
 
     //This is the function to set interval for the 10 second timer.  
     //After several days of troubleshooting with lengthier code, I was able to
@@ -14,16 +18,16 @@ $(document).ready(function () {
         countdown = setInterval(function () {
             document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
             tenSecTimer -= 1;
+            console.log(tenSecTimer)
             if (tenSecTimer <= -0.5) {
-                qReset();
                 timeRanOut();
+                qReset();
             }
 
         }, 1000);
     }
 
     function qReset() {
-
         clearInterval(countdown);
 
     }
@@ -40,18 +44,16 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[0];
         document.getElementById("choices").innerHTML = choices0;
         tenSeconds();
-        // if (qReset()) {
-        //     threeSecDelay0();
-        // }
 
     }
 
     //This function informs the User that they answered correctly, and it increments 
-    //the Corrects by 1
+    //the 'Corrects' by 1
     function correctAnswer() {
         corrects++
         document.getElementById("msg2").innerHTML = "Correct";
         document.getElementById("choices").innerHTML = "";
+        qReset();
 
         //Commenting out corrects variable until I get it to work
         // document.getElementById("corrects").innerHTML = "";
@@ -59,11 +61,12 @@ $(document).ready(function () {
     }
 
     //This function informs the User that they answered incorrectly, and it increments 
-    //the Incorrects by 1
+    //the 'Incorrects' by 1
     function incorrectAnswer() {
         incorrects++;
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
+        qReset();
 
     }
 
@@ -75,8 +78,6 @@ $(document).ready(function () {
         incorrects++;
         document.getElementById("timer").innerHTML = "Bananas! Your time ran out.";
         document.getElementById("choices").innerHTML = "";
-
-
     }
 
 
@@ -290,6 +291,7 @@ $(document).ready(function () {
         document.getElementById("choices").innerHTML = choices1;
         tenSeconds();
 
+
     }
 
     function threeSecDelay1() {
@@ -297,6 +299,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[2];
         document.getElementById("choices").innerHTML = choices2;
         tenSeconds();
+
     }
 
     function threeSecDelay2() {
@@ -305,6 +308,7 @@ $(document).ready(function () {
         document.getElementById("choices").innerHTML = choices3;
         tenSeconds();
 
+
     }
 
     function threeSecDelay3() {
@@ -312,6 +316,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[4];
         document.getElementById("choices").innerHTML = choices4;
         tenSeconds();
+
     }
 
     function threeSecDelay4() {
@@ -319,6 +324,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[5];
         document.getElementById("choices").innerHTML = choices5;
         tenSeconds();
+
 
     }
 
@@ -328,6 +334,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[6];
         document.getElementById("choices").innerHTML = choices6;
         tenSeconds();
+
     }
 
     function threeSecDelay6() {
@@ -343,6 +350,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[8];
         document.getElementById("choices").innerHTML = choices8;
         tenSeconds();
+
     }
 
     function threeSecDelay8() {
@@ -350,6 +358,7 @@ $(document).ready(function () {
         document.getElementById("question1").innerHTML = questions[9];
         document.getElementById("choices").innerHTML = choices9;
         tenSeconds();
+
 
     }
 
@@ -359,16 +368,19 @@ $(document).ready(function () {
 
         if (corrects >= 7) {
             document.getElementById("question1").innerHTML = "Sweet!  You got &nbsp " + corrects + " &nbsp out of 10 correct.";
+            document.getElementById("timer").innerHTML = "Thanks for playing NUTRITION FACTS!";
         }
         else if (corrects === 10) {
             document.getElementById("question1").innerHTML = "You Rock!  You got a perfect &nbsp " + corrects + " &nbsp out of 10 correct.";
+            document.getElementById("timer").innerHTML = "Thanks for playing NUTRITION FACTS!";
         }
         else {
             document.getElementById("question1").innerHTML = "You got &nbsp" + corrects + " &nbsp out of 10 correct.  Better luck next time, kiddo.";
+            document.getElementById("timer").innerHTML = "Thanks for playing NUTRITION FACTS!";
         }
 
-        document.getElementById("choices").innerHTML = "Thanks for playing Nutrition Facts!";
-        console.log('Final corrects message.');
+        document.getElementById("choices").innerHTML = "";
+        console.log('Final message with thank you and score.');
 
     }
 
