@@ -18,7 +18,7 @@ $(document).ready(function () {
         countdown = setInterval(function () {
             document.getElementById("timer").innerHTML = "You have &nbsp :" + tenSecTimer + "&nbsp &nbsp seconds left.";
             tenSecTimer -= 1;
-            console.log(tenSecTimer)
+            // console.log(tenSecTimer)
             if (tenSecTimer <= -0.5) {
                 timeRanOut();
                 qReset();
