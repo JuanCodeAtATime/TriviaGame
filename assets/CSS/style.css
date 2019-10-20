@@ -1,5 +1,5 @@
 body {
-
+/* These body properties placed my game in the center of the screen as desired. */
     margin: 0;
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url("../images/nutritionFacts.jpg");
     background-size: cover;
@@ -10,32 +10,44 @@ body {
     height: 100vh;
 }
 
-#timer {
 
-    height: 65px;
+#timer {
+    /* This timer is placed in the horizontal red button 
+    that spans the jumbotron container */
+    height: auto;
     font-size: 25px;
     font-family: 'Michroma', sans-serif;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
     align-content: center;
     box-shadow: 0 0 10px 2px;
+    white-space: normal;
+    text-align: center;
 
 }
 
 #gameTitle {
-font-size: 50px;
-font-family: 'Michroma', sans-serif;
-margin: 0;
-padding: 0;
-align-content: center;
+    font-size: 50px;
+    font-family: 'Michroma', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 0;
+    align-content: center;
 
 }
 
+#tagLine {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 35px;
+    padding: 0;
+}
+
 .jumbotron {
+    /* Dimmed the opacity to enhance the look  */
     opacity: .87;
     box-shadow: 0 0 10px 2px;
     align-content: center;
+    padding-top: 35px;
     
 }
 
@@ -46,6 +58,8 @@ align-content: center;
 }
 
 .mainContainer {
+   /* I chose 85% for the game box as it 
+   seemed aesthetically better than spanning 100% of the screen */
     width: 85%;
     margin: 0 auto;
 }
@@ -55,8 +69,6 @@ align-content: center;
    
 }
 
-
-
 #choices {
     font-family: 'Michroma', sans-serif;
     display: grid;
@@ -65,3 +77,7 @@ align-content: center;
     border-radius: 10px;
 }
 
+/* Font families inventory:
+font-family: 'Inconsolata', monospace;
+font-family: 'Michroma', sans-serif;
+font-family: 'Shadows Into Light', cursive; */

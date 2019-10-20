@@ -10,8 +10,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Faster+One|Neucha&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Michroma|Shadows+Into+Light&display=swap"
+        rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Nutition Facts: A Trivia Game</title>
@@ -23,7 +23,9 @@
 
         <div class="jumbotron">
             <h1 class="display-4" id="gameTitle">NUTRITION FACTS</h1>
-            <p class="lead"><strong>A trivia game to test your basic nutrition knowledge.</strong></p>
+            <p class="lead">
+                <h3 id="tagLine">A trivia game to test your basic nutrition knowledge.</h3>
+            </p>
             <hr class="my-4">
             <div id="disappear">
                 <button class="btn btn-success btn-lg" role="button" id="startGameBtn" data-toggle="tooltip"
@@ -37,12 +39,16 @@
             <p class="triviaFont" id="choices"></p>
             <p class="triviaFont" id="skipBtn"></p>
             <p class="triviaFont" id="msg2"></p>
-            <div id="testTimer">
 
-                <button type="button" class="btn btn-danger btn-lg btn-block" id="timer" data-toggle="tooltip"
-                    title="Click Start Game button to Begin">
-                    <h3>Timer</h3>
-                </button>
+            <div class="container" id="testTimer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-danger btn-lg btn-block" id="timer" data-toggle="tooltip"
+                            title="Click Start Game button to Begin">
+                            <h3>Timer</h3>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 

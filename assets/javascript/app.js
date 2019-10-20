@@ -2,13 +2,12 @@ $(document).ready(function () {
 
 
 
-    //The Corrects and Incorrects variables are counted during the game
+    //The 'Corrects' variable is counted during the game
     // and displayed after the last (10th) question.
 
     let corrects = 0;
-    let incorrects = 0;
 
-    //This is the function to set interval for the 10 second timer.  
+    //The tenSeconds() function initiates the setInterval for the 10 second timer.  
     //This setInterval function controls the :10 second timers of all 10 questions.
 
     function tenSeconds() {
@@ -33,6 +32,7 @@ $(document).ready(function () {
     }
 
     //This ID for Start Game controls the green Start button on the home screen
+    //It disappears upon click.
 
     $("#startGameBtn").click(function () {
         startGame();
@@ -60,10 +60,8 @@ $(document).ready(function () {
 
     }
 
-    //This function informs the User that they answered incorrectly, and it increments 
-    //the 'Incorrects' by 1
+    //This function informs the User that they answered incorrectly
     function incorrectAnswer() {
-        incorrects++;
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
         qReset();
@@ -71,16 +69,17 @@ $(document).ready(function () {
     }
 
     //This timeRanOut function informs the User that their time ran out.  
-    //It also increments the Incorrects by default and hides all buttons
-    // except for the 'Skip' button, prompting the User to advance to the next question.
+    //It also hides all buttons except for the 'Next' button, prompting 
+    //the User to advance to the next question.
 
     function timeRanOut() {
-        incorrects++;
-        document.getElementById("timer").innerHTML = "Time's Up! Press Skip to continue.";
+        document.getElementById("timer").innerHTML = "Time's Up! Press Next to continue.";
         document.getElementById("choices").innerHTML = "";
         qReset();
 
     }
+
+    //All ten questions were placed in a single array.
 
     let questions = ["1. &nbsp Avocados, walnuts, and almonds are good sources of?",
         "2. &nbsp Frequent consumption of sugar-sweetened beverages in non-active individuals is associated with:",
@@ -114,8 +113,6 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="iA4">Protein, for lean muscle mass</button>',
         '<button type="button" class="btn-primary" id="iA4">Caffeine, for extra energy</button>'];
 
-
-
     let choices4 = ['<button type="button" class="btn-primary" id="iA5">Bone marrow</button>',
         '<button type="button" class="btn-primary" id="iA5">Vitamin D, to support bone health</button>',
         '<button type="button" class="btn-primary" id="iA5">Protein, for lean muscle mass</button>',
@@ -147,23 +144,23 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="iA10">Himalayan Salt</button>',
         '<button type="button" class="btn-primary" id="cA10">Table Sugar</button>'];
 
-    //These skip buttons had to be an exclusive element as I wanted the answer choices
-    //to disappear upon ten-sec timer expiration
+    //The NEXT buttons were assigned a different ID as I wanted the answer choices
+    // to disappear upon ten-sec timer expiration.
 
-    let skipBtns = ['<button type="button" class="btn-success" id="skip0">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip1">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip2">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip3">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip4">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip5">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip6">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip7">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip8">SKIP</button>',
-        '<button type="button" class="btn-success" id="skip9">SKIP</button>']
+    let skipBtns = ['<button type="button" class="btn-success" id="skip0">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip1">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip2">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip3">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip4">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip5">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip6">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip7">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip8">NEXT</button>',
+        '<button type="button" class="btn-success" id="skip9">NEXT</button>']
 
-    // Buttons below represent all correct, incorrect, and skip answer choices.
+    // Buttons below represent all correct, incorrect, and next answer choices.
     // User will receive immediate feedback on their response.  
-    // Whether correct or incorrect, both responses have a three second delay, 
+    // Whether correct or incorrect, both responses have a three second delay (setTimeout),
     // then advance to next question without User input (as specified in Homework Instructions).
 
 
@@ -349,7 +346,8 @@ $(document).ready(function () {
         setTimeout(threeSecDelay9, 3000);
     })
 
-
+    //Functions below clear the previous question after a three-second delay and
+    //generates the next question and answer choices.
 
     function threeSecDelay0() {
         document.getElementById("msg2").innerHTML = "";
@@ -438,6 +436,8 @@ $(document).ready(function () {
 
     }
 
+    //Last function below (threeSecDelay9) displays score 
+    //with comments based on their correct questions.
 
     function threeSecDelay9() {
         document.getElementById("msg2").innerHTML = "";
@@ -445,6 +445,7 @@ $(document).ready(function () {
         if (corrects >= 7) {
             document.getElementById("question1").innerHTML = "Sweet!  You got &nbsp " + corrects + " &nbsp out of 10 correct.";
             document.getElementById("timer").innerHTML = "Thanks for playing NUTRITION FACTS!";
+
         }
         else if (corrects === 10) {
             document.getElementById("question1").innerHTML = "You Rock!  You got a perfect &nbsp " + corrects + " &nbsp out of 10 correct.";
