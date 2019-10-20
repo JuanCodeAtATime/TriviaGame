@@ -2,16 +2,14 @@ $(document).ready(function () {
 
 
 
+    //The Corrects and Incorrects variables are counted during the game
+    // and displayed after the last (10th) question.
+
     let corrects = 0;
     let incorrects = 0;
-    // let countdown = "";
-    // let tenSecTimer = "";
-    // let tenSecTimer = '';
-    // let countdown = '';
 
     //This is the function to set interval for the 10 second timer.  
-    //After several days of troubleshooting with lengthier code, I was able to
-    //write this one setInterval function that controls the :10 second timers of all 10 questions.
+    //This setInterval function controls the :10 second timers of all 10 questions.
 
     function tenSeconds() {
         tenSecTimer = 10;
@@ -20,8 +18,10 @@ $(document).ready(function () {
             tenSecTimer -= 1;
             // console.log(tenSecTimer)
             if (tenSecTimer <= -0.5) {
-                timeRanOut();
                 qReset();
+                document.getElementById("choices").innerHTML = "";
+                timeRanOut();
+
             }
 
         }, 1000);
@@ -38,12 +38,14 @@ $(document).ready(function () {
         startGame();
     });
 
-    //This function initiates the game and dynamically generates the first of 10 questions.
+    //This function initiates the game and dynamically generates the 1st of 10 questions.
     function startGame() {
         document.getElementById("disappear").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[0];
         document.getElementById("choices").innerHTML = choices0;
+        document.getElementById("skipBtn").innerHTML = skipBtns[0];
         tenSeconds();
+
 
     }
 
@@ -55,8 +57,6 @@ $(document).ready(function () {
         document.getElementById("choices").innerHTML = "";
         qReset();
 
-        //Commenting out corrects variable until I get it to work
-        // document.getElementById("corrects").innerHTML = "";
 
     }
 
@@ -70,17 +70,17 @@ $(document).ready(function () {
 
     }
 
-    //This function informs the User that their time ran out.  It also increments the
-    //incorrects by default.  I'm currently trying to add additional functionality
-    //to advance to the next question. 
+    //This timeRanOut function informs the User that their time ran out.  
+    //It also increments the Incorrects by default and hides all buttons
+    // except for the 'Skip' button, prompting the User to advance to the next question.
 
     function timeRanOut() {
         incorrects++;
-        document.getElementById("timer").innerHTML = "Bananas! Your time ran out.";
+        document.getElementById("timer").innerHTML = "Time's Up! Press Skip to continue.";
         document.getElementById("choices").innerHTML = "";
+        qReset();
+
     }
-
-
 
     let questions = ["1. &nbsp Avocados, walnuts, and almonds are good sources of?",
         "2. &nbsp Frequent consumption of sugar-sweetened beverages in non-active individuals is associated with:",
@@ -147,11 +147,24 @@ $(document).ready(function () {
         '<button type="button" class="btn-primary" id="iA10">Himalayan Salt</button>',
         '<button type="button" class="btn-primary" id="cA10">Table Sugar</button>'];
 
+    //These skip buttons had to be an exclusive element as I wanted the answer choices
+    //to disappear upon ten-sec timer expiration
 
-    // Buttons below represent all correct and incorrect answer choices.
+    let skipBtns = ['<button type="button" class="btn-success" id="skip0">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip1">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip2">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip3">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip4">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip5">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip6">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip7">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip8">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip9">SKIP</button>']
+
+    // Buttons below represent all correct, incorrect, and skip answer choices.
     // User will receive immediate feedback on their response.  
     // Whether correct or incorrect, both responses have a three second delay, 
-    // then advance to next question without user input.
+    // then advance to next question without User input (as specified in Homework Instructions).
 
 
     $("#choices").on("click", "#cA1", function () {
@@ -167,6 +180,12 @@ $(document).ready(function () {
         setTimeout(threeSecDelay0, 3000);
     })
 
+    $("#skipBtn").on("click", "#skip0", function () {
+        qReset()
+        setTimeout(threeSecDelay0, 3000);
+    })
+
+
     $("#choices").on("click", "#cA2", function () {
         correctAnswer();
         qReset()
@@ -179,6 +198,12 @@ $(document).ready(function () {
         qReset()
         setTimeout(threeSecDelay1, 3000);
     })
+
+    $("#skipBtn").on("click", "#skip1", function () {
+        qReset()
+        setTimeout(threeSecDelay1, 3000);
+    })
+
 
     $("#choices").on("click", "#cA3", function () {
         correctAnswer();
@@ -193,6 +218,12 @@ $(document).ready(function () {
         setTimeout(threeSecDelay2, 3000);
     })
 
+    $("#skipBtn").on("click", "#skip2", function () {
+        qReset()
+        setTimeout(threeSecDelay2, 3000);
+    })
+
+
     $("#choices").on("click", "#cA4", function () {
         correctAnswer();
         qReset()
@@ -206,6 +237,12 @@ $(document).ready(function () {
         setTimeout(threeSecDelay3, 3000);
 
     })
+
+    $("#skipBtn").on("click", "#skip3", function () {
+        qReset()
+        setTimeout(threeSecDelay3, 3000);
+    })
+
     $("#choices").on("click", "#cA5", function () {
         correctAnswer();
         qReset()
@@ -218,6 +255,12 @@ $(document).ready(function () {
         qReset()
         setTimeout(threeSecDelay4, 3000);
     })
+
+    $("#skipBtn").on("click", "#skip4", function () {
+        qReset()
+        setTimeout(threeSecDelay4, 3000);
+    })
+
 
     $("#choices").on("click", "#cA6", function () {
         correctAnswer();
@@ -232,6 +275,11 @@ $(document).ready(function () {
         setTimeout(threeSecDelay5, 3000);
 
     })
+    $("#skipBtn").on("click", "#skip5", function () {
+        qReset()
+        setTimeout(threeSecDelay5, 3000);
+    })
+
 
     $("#choices").on("click", "#cA7", function () {
         correctAnswer();
@@ -246,11 +294,15 @@ $(document).ready(function () {
         setTimeout(threeSecDelay6, 3000);
     })
 
+    $("#skipBtn").on("click", "#skip6", function () {
+        qReset()
+        setTimeout(threeSecDelay6, 3000);
+    })
+
     $("#choices").on("click", "#cA8", function () {
         correctAnswer();
         qReset()
         setTimeout(threeSecDelay7, 3000);
-
     })
 
     $("#choices").on("click", "#iA8", function () {
@@ -259,11 +311,15 @@ $(document).ready(function () {
         setTimeout(threeSecDelay7, 3000);
     })
 
+    $("#skipBtn").on("click", "#skip7", function () {
+        qReset()
+        setTimeout(threeSecDelay7, 3000);
+    })
+
     $("#choices").on("click", "#cA9", function () {
         correctAnswer();
         qReset()
         setTimeout(threeSecDelay8, 3000);
-
     })
 
     $("#choices").on("click", "#iA9", function () {
@@ -271,6 +327,11 @@ $(document).ready(function () {
         qReset()
         setTimeout(threeSecDelay8, 3000);
     })
+    $("#skipBtn").on("click", "#skip8", function () {
+        qReset()
+        setTimeout(threeSecDelay8, 3000);
+    })
+
 
     $("#choices").on("click", "#cA10", function () {
         correctAnswer();
@@ -283,12 +344,18 @@ $(document).ready(function () {
         qReset()
         setTimeout(threeSecDelay9, 3000);
     })
+    $("#skipBtn").on("click", "#skip9", function () {
+        qReset()
+        setTimeout(threeSecDelay9, 3000);
+    })
+
 
 
     function threeSecDelay0() {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[1];
         document.getElementById("choices").innerHTML = choices1;
+        document.getElementById("skipBtn").innerHTML = skipBtns[1]
         tenSeconds();
 
 
@@ -298,6 +365,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[2];
         document.getElementById("choices").innerHTML = choices2;
+        document.getElementById("skipBtn").innerHTML = skipBtns[2]
         tenSeconds();
 
     }
@@ -306,6 +374,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[3];
         document.getElementById("choices").innerHTML = choices3;
+        document.getElementById("skipBtn").innerHTML = skipBtns[3]
         tenSeconds();
 
 
@@ -315,6 +384,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[4];
         document.getElementById("choices").innerHTML = choices4;
+        document.getElementById("skipBtn").innerHTML = skipBtns[4];
         tenSeconds();
 
     }
@@ -323,7 +393,9 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[5];
         document.getElementById("choices").innerHTML = choices5;
+        document.getElementById("skipBtn").innerHTML = skipBtns[5]
         tenSeconds();
+
 
 
     }
@@ -333,6 +405,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[6];
         document.getElementById("choices").innerHTML = choices6;
+        document.getElementById("skipBtn").innerHTML = skipBtns[6]
         tenSeconds();
 
     }
@@ -341,6 +414,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[7];
         document.getElementById("choices").innerHTML = choices7;
+        document.getElementById("skipBtn").innerHTML = skipBtns[7];
         tenSeconds();
 
     }
@@ -349,6 +423,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[8];
         document.getElementById("choices").innerHTML = choices8;
+        document.getElementById("skipBtn").innerHTML = skipBtns[8]
         tenSeconds();
 
     }
@@ -357,6 +432,7 @@ $(document).ready(function () {
         document.getElementById("msg2").innerHTML = "";
         document.getElementById("question1").innerHTML = questions[9];
         document.getElementById("choices").innerHTML = choices9;
+        document.getElementById("skipBtn").innerHTML = skipBtns[9]
         tenSeconds();
 
 
