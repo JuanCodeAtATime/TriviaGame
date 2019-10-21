@@ -16,4 +16,8 @@ After answering the 10th question, game displays breakdown of Player's results (
 
 
 //DEVELOPER'S NOTES//
-I chose to complete the Challenge homework.  It was quite the challenge.  Although the game has 100% of the functionality as specified in the project instructions, the JS code is a bit too lengthy.  Going forward, I will continue honing my JS skills to improve code efficiency.  So although I'm satisfied with the look, feel, and functionality of this product, it flirts with , bends, and breaks the D.R.Y [Don't Repeat Yourself] rule.  
+After 3 weeks of javaScript training, I chose to complete the more challenging homework.  And  yes, it was quite the challenge.  Although the game has 100% of the functionality specified in the project instructions, I think the JS code is a bit too lengthy.  
+
+I applied some of the concepts we covered this week (setInterval, setTimeOut, clearInterval, etc).  However, after looking at my final JS code, I definitely need to continue honing my JS skills to improve code efficiency, especially the ability to leverage functions and for loops to avoid repetitive code.  
+
+In sum, although I'm satisfied with the look, feel, and functionality of this product, it flirts with , bends, and breaks the D.R.Y [Don't Repeat Yourself] rule.  
