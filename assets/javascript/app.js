@@ -55,6 +55,7 @@ $(document).ready(function () {
         corrects++
         document.getElementById("msg2").innerHTML = "Correct";
         document.getElementById("choices").innerHTML = "";
+        document.getElementById("skipBtn").innerHTML = "";
         qReset();
 
 
@@ -64,6 +65,7 @@ $(document).ready(function () {
     function incorrectAnswer() {
         document.getElementById("msg2").innerHTML = "Sorry. That's incorrect.";
         document.getElementById("choices").innerHTML = "";
+        document.getElementById("skipBtn").innerHTML = "";
         qReset();
 
     }
