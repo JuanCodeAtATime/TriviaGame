@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
     //The 'Corrects' variable is counted during the game
     // and displayed after the last (10th) question.
 
@@ -149,16 +147,16 @@ $(document).ready(function () {
     //The NEXT buttons were assigned a different ID as I wanted the answer choices
     // to disappear upon ten-sec timer expiration.
 
-    let skipBtns = ['<button type="button" class="btn-success" id="skip0">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip1">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip2">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip3">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip4">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip5">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip6">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip7">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip8">NEXT</button>',
-        '<button type="button" class="btn-success" id="skip9">NEXT</button>']
+    let skipBtns = ['<button type="button" class="btn-success" id="skip0">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip1">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip2">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip3">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip4">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip5">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip6">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip7">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip8">SKIP</button>',
+        '<button type="button" class="btn-success" id="skip9">SKIP</button>']
 
     // Buttons below represent all correct, incorrect, and next answer choices.
     // User will receive immediate feedback on their response.  
@@ -181,7 +179,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip0", function () {
         qReset()
-        setTimeout(threeSecDelay0, 3000);
+        setTimeout(threeSecDelay0, 500);
     })
 
 
@@ -200,7 +198,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip1", function () {
         qReset()
-        setTimeout(threeSecDelay1, 3000);
+        setTimeout(threeSecDelay1, 500);
     })
 
 
@@ -219,7 +217,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip2", function () {
         qReset()
-        setTimeout(threeSecDelay2, 3000);
+        setTimeout(threeSecDelay2, 500);
     })
 
 
@@ -239,7 +237,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip3", function () {
         qReset()
-        setTimeout(threeSecDelay3, 3000);
+        setTimeout(threeSecDelay3, 500);
     })
 
     $("#choices").on("click", "#cA5", function () {
@@ -257,7 +255,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip4", function () {
         qReset()
-        setTimeout(threeSecDelay4, 3000);
+        setTimeout(threeSecDelay4, 500);
     })
 
 
@@ -276,7 +274,7 @@ $(document).ready(function () {
     })
     $("#skipBtn").on("click", "#skip5", function () {
         qReset()
-        setTimeout(threeSecDelay5, 3000);
+        setTimeout(threeSecDelay5, 500);
     })
 
 
@@ -295,7 +293,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip6", function () {
         qReset()
-        setTimeout(threeSecDelay6, 3000);
+        setTimeout(threeSecDelay6, 500);
     })
 
     $("#choices").on("click", "#cA8", function () {
@@ -312,7 +310,7 @@ $(document).ready(function () {
 
     $("#skipBtn").on("click", "#skip7", function () {
         qReset()
-        setTimeout(threeSecDelay7, 3000);
+        setTimeout(threeSecDelay7, 500);
     })
 
     $("#choices").on("click", "#cA9", function () {
@@ -328,7 +326,7 @@ $(document).ready(function () {
     })
     $("#skipBtn").on("click", "#skip8", function () {
         qReset()
-        setTimeout(threeSecDelay8, 3000);
+        setTimeout(threeSecDelay8, 500);
     })
 
 
@@ -345,7 +343,7 @@ $(document).ready(function () {
     })
     $("#skipBtn").on("click", "#skip9", function () {
         qReset()
-        setTimeout(threeSecDelay9, 3000);
+        setTimeout(threeSecDelay9, 500);
     })
 
     //Functions below clear the previous question after a three-second delay and
